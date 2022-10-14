@@ -86,7 +86,9 @@ class LoginView extends GetView<LoginController> {
                         fontWeight: FontWeight.w500),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.toNamed(Routes.REGISTER);
+                    },
                     child: const Text(
                       "Register",
                       style: TextStyle(
