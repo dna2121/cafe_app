@@ -45,7 +45,20 @@ class LoginView extends GetView<LoginController> {
                     TextFormWidget(
                       icon: Icons.lock_outline,
                       hintText: "password",
-                    )
+                    ),
+                    const SizedBox(height: 23),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          "Forgot password?",
+                          style: TextStyle(
+                              color: AppColor.primaryColor, fontSize: 12),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 23),
                   ],
                 ),
               ),
