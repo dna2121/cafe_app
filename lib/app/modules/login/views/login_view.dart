@@ -1,3 +1,4 @@
+import 'package:cafe_app/app/routes/app_pages.dart';
 import 'package:cafe_app/constants/app_color.dart';
 import 'package:flutter/material.dart';
 
@@ -68,7 +69,9 @@ class LoginView extends GetView<LoginController> {
                 child: SubmitButton(
                   height: 51,
                   width: double.infinity,
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed(Routes.HOME);
+                  },
                   text: "Login",
                 ),
               ),
