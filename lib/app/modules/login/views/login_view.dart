@@ -17,7 +17,7 @@ class LoginView extends GetView<LoginController> {
             children: [
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 47, horizontal: 111),
+                    const EdgeInsets.symmetric(vertical: 47, horizontal: 36),
                 child: Image.asset(
                   "assets/images/login.png",
                   height: 149,
@@ -58,10 +58,29 @@ class LoginView extends GetView<LoginController> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 23),
                   ],
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 36),
+                child: SizedBox(
+                  height: 51,
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(AppColor.buttonColor),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(7.0),
+                        ),
+                      ),
+                    ),
+                    child: const Text("Login"),
+                  ),
+                ),
+              )
             ],
           ),
         ],
