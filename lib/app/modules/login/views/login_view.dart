@@ -32,9 +32,9 @@ class LoginView extends GetView<LoginController> {
                     fontSize: 32,
                     fontWeight: FontWeight.w700),
               ),
+              const SizedBox(height: 40),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 36, vertical: 40),
+                padding: const EdgeInsets.symmetric(horizontal: 36),
                 child: Column(
                   children: [
                     TextFormWidget(
@@ -58,6 +58,7 @@ class LoginView extends GetView<LoginController> {
                         ),
                       ),
                     ),
+                    const SizedBox(height: 23),
                   ],
                 ),
               ),
@@ -80,7 +81,28 @@ class LoginView extends GetView<LoginController> {
                     child: const Text("Login"),
                   ),
                 ),
-              )
+              ),
+              const SizedBox(height: 18),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Don't have an account?",
+                    style: TextStyle(
+                        color: AppColor.primaryColor,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      "Register",
+                      style: TextStyle(
+                          color: AppColor.primaryColor,
+                          fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ],
