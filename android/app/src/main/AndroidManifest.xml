@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.cafe_app">
+    package="com.dna.cafe_app">
    <application
         android:label="cafe_app"
         android:name="${applicationName}"
