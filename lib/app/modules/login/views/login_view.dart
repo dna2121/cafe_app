@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../../../widgets/submit_button_widget.dart';
 import '../../../../widgets/text_form_widget.dart';
 import '../controllers/login_controller.dart';
 
@@ -64,22 +65,11 @@ class LoginView extends GetView<LoginController> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 36),
-                child: SizedBox(
+                child: SubmitButton(
                   height: 51,
                   width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(AppColor.buttonColor),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(7.0),
-                        ),
-                      ),
-                    ),
-                    child: const Text("Login"),
-                  ),
+                  onPressed: () {},
+                  text: "Login",
                 ),
               ),
               const SizedBox(height: 18),
