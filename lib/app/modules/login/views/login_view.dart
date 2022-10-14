@@ -13,13 +13,13 @@ class LoginView extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: [
-          Column(
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Center(
+          child: Column(
             children: [
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 47, horizontal: 36),
+                padding: const EdgeInsets.fromLTRB(36, 60, 36, 40),
                 child: Image.asset(
                   "assets/images/login.png",
                   height: 149,
@@ -98,7 +98,7 @@ class LoginView extends GetView<LoginController> {
               ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }
