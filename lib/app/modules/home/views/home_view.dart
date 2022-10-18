@@ -1,9 +1,11 @@
-import 'package:cafe_app/constants/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
 
+import '../../../../constants/app_color.dart';
+import '../../product/views/product_view.dart';
+import '../../profile/views/profile_view.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -38,6 +40,12 @@ class HomeView extends GetView<HomeController> {
               ],
             ),
           ),
+        ),
+      ),
+      body: Obx(
+        () => IndexedStack(
+          index: controller.tabIndex.value,
+          children: const [ProductView(), ProfileView()],
         ),
       ),
     );
