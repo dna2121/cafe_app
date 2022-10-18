@@ -12,23 +12,32 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Obx(
-        () => BottomNavigationBar(
-          onTap: controller.changeTabIndex,
-          currentIndex: controller.tabIndex.value,
-          backgroundColor: AppColor.navbarColor,
-          selectedItemColor: AppColor.primaryColor,
-          unselectedItemColor: AppColor.textColor,
-          items: const [
-            BottomNavigationBarItem(
-              icon: FaIcon(FontAwesomeIcons.house),
-              label: 'Home',
+        () => ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+          child: SizedBox(
+            height: 69,
+            child: BottomNavigationBar(
+              onTap: controller.changeTabIndex,
+              currentIndex: controller.tabIndex.value,
+              backgroundColor: AppColor.navbarColor,
+              selectedItemColor: AppColor.primaryColor,
+              unselectedItemColor: AppColor.textColor,
+              items: const [
+                BottomNavigationBarItem(
+                  icon: FaIcon(FontAwesomeIcons.house),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: FaIcon(FontAwesomeIcons.user),
+                  activeIcon: FaIcon(FontAwesomeIcons.solidUser),
+                  label: 'Profile',
+                ),
+              ],
             ),
-            BottomNavigationBarItem(
-              icon: FaIcon(FontAwesomeIcons.user),
-              activeIcon: FaIcon(FontAwesomeIcons.solidUser),
-              label: 'Profile',
-            ),
-          ],
+          ),
         ),
       ),
     );
