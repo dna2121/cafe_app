@@ -9,6 +9,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: 4.6.5
   font_awesome_flutter: 10.2.1
+  flutterfire_cli: 0.2.6
   flutter: 
     sdk: flutter
 
