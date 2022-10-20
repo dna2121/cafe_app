@@ -9,6 +9,7 @@ abstract class Routes {
   static const LANDING = _Paths.LANDING;
   static const PROFILE = _Paths.PROFILE;
   static const PRODUCT = _Paths.PRODUCT;
+  static const ADD_PRODUCT = _Paths.ADD_PRODUCT;
 }
 
 abstract class _Paths {
@@ -19,4 +20,5 @@ abstract class _Paths {
   static const LANDING = '/landing';
   static const PROFILE = '/profile';
   static const PRODUCT = '/product';
+  static const ADD_PRODUCT = '/add-product';
 }
