@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 import '../../../../constants/app_color.dart';
+import '../../../routes/app_pages.dart';
 import '../../product/views/product_view.dart';
 import '../../profile/views/profile_view.dart';
 import '../controllers/home_controller.dart';
@@ -47,6 +48,10 @@ class HomeView extends GetView<HomeController> {
           index: controller.tabIndex.value,
           children: const [ProductView(), ProfileView()],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Get.toNamed(Routes.ADD_PRODUCT),
+        child: const FaIcon(FontAwesomeIcons.plus),
       ),
     );
   }
