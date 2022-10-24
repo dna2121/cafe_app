@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../../../widgets/submit_button_widget.dart';
 import '../../../../widgets/text_field_product_widget.dart';
 import '../controllers/add_product_controller.dart';
 import '../../../../constants/app_color.dart';
@@ -12,6 +13,7 @@ class AddProductView extends GetView<AddProductController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             children: [
@@ -44,13 +46,24 @@ class AddProductView extends GetView<AddProductController> {
               )
             ],
           ),
-          const SizedBox(height: 75),
-          const Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 30,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              children: [
+                const TextFieldProduct(labelText: 'Name'),
+                const SizedBox(height: 50),
+                const TextFieldProduct(labelText: 'Price'),
+                const SizedBox(height: 88),
+                SubmitButton(
+                  onPressed: () {},
+                  text: "Submit",
+                  width: 249,
+                  height: 49,
+                )
+              ],
             ),
-            child: TextFieldProduct(labelText: 'Name'),
           ),
+          const SizedBox(),
         ],
       ),
     );
