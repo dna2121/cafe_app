@@ -65,8 +65,31 @@ class AddProductView extends GetView<AddProductController> {
                 const SizedBox(height: 88),
                 SubmitButton(
                   onPressed: () {
-                    controller.addProduct(controller.nameC.text,
-                        int.parse(controller.priceC.text));
+                    if (controller.nameC.text.isEmpty &
+                        controller.priceC.text.isEmpty) {
+                      Get.snackbar(
+                        "Empty",
+                        "Product's Name and Price are required.",
+                        margin: const EdgeInsets.all(20),
+                      );
+                    } else if (controller.nameC.text.isNotEmpty &
+                        controller.priceC.text.isEmpty) {
+                      Get.snackbar(
+                        "Empty",
+                        "Product's Price is required.",
+                        margin: const EdgeInsets.all(20),
+                      );
+                    } else if (controller.nameC.text.isEmpty &
+                        controller.priceC.text.isNotEmpty) {
+                      Get.snackbar(
+                        "Empty",
+                        "Product's Name is required.",
+                        margin: const EdgeInsets.all(20),
+                      );
+                    } else {
+                      controller.addProduct(controller.nameC.text,
+                          int.parse(controller.priceC.text));
+                    }
                   },
                   text: "Submit",
                   width: 249,
