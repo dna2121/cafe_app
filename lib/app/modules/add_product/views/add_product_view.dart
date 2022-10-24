@@ -50,9 +50,15 @@ class AddProductView extends GetView<AddProductController> {
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Column(
               children: [
-                const TextFieldProduct(labelText: 'Name'),
+                TextFieldProduct(
+                  labelText: 'Name',
+                  controller: controller.nameC,
+                ),
                 const SizedBox(height: 50),
-                const TextFieldProduct(labelText: 'Price'),
+                TextFieldProduct(
+                  labelText: 'Price',
+                  controller: controller.priceC,
+                ),
                 const SizedBox(height: 88),
                 SubmitButton(
                   onPressed: () {},
