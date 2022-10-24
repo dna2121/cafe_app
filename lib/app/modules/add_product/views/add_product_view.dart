@@ -61,7 +61,10 @@ class AddProductView extends GetView<AddProductController> {
                 ),
                 const SizedBox(height: 88),
                 SubmitButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    controller.addProduct(
+                        controller.nameC.text, controller.priceC.text);
+                  },
                   text: "Submit",
                   width: 249,
                   height: 49,
