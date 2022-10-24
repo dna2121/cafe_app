@@ -12,13 +12,14 @@ class AddProductView extends GetView<AddProductController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 30, top: 50),
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 25, top: 25),
                 child: Container(
                   decoration: BoxDecoration(
                     color: AppColor.navbarColor,
@@ -30,76 +31,71 @@ class AddProductView extends GetView<AddProductController> {
                   ),
                 ),
               ),
-              const SizedBox(width: 20),
-              const Expanded(
-                child: Padding(
-                  padding: EdgeInsets.only(top: 50, right: 30),
-                  child: Text(
-                    "Add Product",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 32,
-                        color: AppColor.primaryColor,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              )
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Column(
-              children: [
-                TextFieldProduct(
-                  labelText: 'Name',
-                  controller: controller.nameC,
-                  textInputAction: TextInputAction.next,
-                ),
-                const SizedBox(height: 50),
-                TextFieldProduct(
-                  labelText: 'Price',
-                  controller: controller.priceC,
-                  keyboardType: TextInputType.number,
-                  textInputAction: TextInputAction.done,
-                ),
-                const SizedBox(height: 88),
-                SubmitButton(
-                  onPressed: () {
-                    if (controller.nameC.text.isEmpty &
-                        controller.priceC.text.isEmpty) {
-                      Get.snackbar(
-                        "Empty",
-                        "Product's Name and Price are required.",
-                        margin: const EdgeInsets.all(20),
-                      );
-                    } else if (controller.nameC.text.isNotEmpty &
-                        controller.priceC.text.isEmpty) {
-                      Get.snackbar(
-                        "Empty",
-                        "Product's Price is required.",
-                        margin: const EdgeInsets.all(20),
-                      );
-                    } else if (controller.nameC.text.isEmpty &
-                        controller.priceC.text.isNotEmpty) {
-                      Get.snackbar(
-                        "Empty",
-                        "Product's Name is required.",
-                        margin: const EdgeInsets.all(20),
-                      );
-                    } else {
-                      controller.addProduct(controller.nameC.text,
-                          int.parse(controller.priceC.text));
-                    }
-                  },
-                  text: "Submit",
-                  width: 249,
-                  height: 49,
-                )
-              ],
             ),
-          ),
-          const SizedBox(),
-        ],
+            const Text(
+              "Add Product",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 32,
+                  color: AppColor.primaryColor,
+                  fontWeight: FontWeight.bold),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Column(
+                children: [
+                  TextFieldProduct(
+                    labelText: 'Name',
+                    controller: controller.nameC,
+                    textInputAction: TextInputAction.next,
+                  ),
+                  const SizedBox(height: 50),
+                  TextFieldProduct(
+                    labelText: 'Price',
+                    controller: controller.priceC,
+                    keyboardType: TextInputType.number,
+                    textInputAction: TextInputAction.done,
+                  ),
+                  const SizedBox(height: 88),
+                  SubmitButton(
+                    onPressed: () {
+                      if (controller.nameC.text.isEmpty &
+                          controller.priceC.text.isEmpty) {
+                        Get.snackbar(
+                          "Empty",
+                          "Product's Name and Price are required.",
+                          margin: const EdgeInsets.all(20),
+                        );
+                      } else if (controller.nameC.text.isNotEmpty &
+                          controller.priceC.text.isEmpty) {
+                        Get.snackbar(
+                          "Empty",
+                          "Product's Price is required.",
+                          margin: const EdgeInsets.all(20),
+                        );
+                      } else if (controller.nameC.text.isEmpty &
+                          controller.priceC.text.isNotEmpty) {
+                        Get.snackbar(
+                          "Empty",
+                          "Product's Name is required.",
+                          margin: const EdgeInsets.all(20),
+                        );
+                      } else {
+                        controller.addProduct(controller.nameC.text,
+                            int.parse(controller.priceC.text));
+                      }
+                    },
+                    text: "Submit",
+                    width: 249,
+                    height: 49,
+                  )
+                ],
+              ),
+            ),
+            const SizedBox(),
+            const SizedBox(),
+          ],
+        ),
       ),
     );
   }
