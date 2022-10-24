@@ -53,17 +53,20 @@ class AddProductView extends GetView<AddProductController> {
                 TextFieldProduct(
                   labelText: 'Name',
                   controller: controller.nameC,
+                  textInputAction: TextInputAction.next,
                 ),
                 const SizedBox(height: 50),
                 TextFieldProduct(
                   labelText: 'Price',
                   controller: controller.priceC,
+                  keyboardType: TextInputType.number,
+                  textInputAction: TextInputAction.done,
                 ),
                 const SizedBox(height: 88),
                 SubmitButton(
                   onPressed: () {
-                    controller.addProduct(
-                        controller.nameC.text, controller.priceC.text);
+                    controller.addProduct(controller.nameC.text,
+                        int.parse(controller.priceC.text));
                   },
                   text: "Submit",
                   width: 249,
