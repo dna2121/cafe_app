@@ -5,14 +5,16 @@ import '../constants/app_color.dart';
 class TextFieldProduct extends StatelessWidget {
   const TextFieldProduct({
     Key? key,
-    required this.labelText,
+    required this.labelText, this.controller
   }) : super(key: key);
 
   final String labelText;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
       decoration: InputDecoration(
         labelText: labelText,
         floatingLabelStyle: const TextStyle(color: AppColor.primaryColor),
