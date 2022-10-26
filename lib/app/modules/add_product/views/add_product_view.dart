@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../../../widgets/primary_text_widget.dart';
 import '../../../../widgets/submit_button_widget.dart';
 import '../../../../widgets/text_field_product_widget.dart';
 import '../controllers/add_product_controller.dart';
@@ -32,13 +33,8 @@ class AddProductView extends GetView<AddProductController> {
                 ),
               ),
             ),
-            const Text(
-              "Add Product",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 32,
-                  color: AppColor.primaryColor,
-                  fontWeight: FontWeight.bold),
+            const PrimaryTextWidget(
+              text: 'Add Product',
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -58,33 +54,7 @@ class AddProductView extends GetView<AddProductController> {
                   ),
                   const SizedBox(height: 88),
                   SubmitButton(
-                    onPressed: () {
-                      if (controller.nameC.text.isEmpty &
-                          controller.priceC.text.isEmpty) {
-                        Get.snackbar(
-                          "Empty",
-                          "Product's Name and Price are required.",
-                          margin: const EdgeInsets.all(20),
-                        );
-                      } else if (controller.nameC.text.isNotEmpty &
-                          controller.priceC.text.isEmpty) {
-                        Get.snackbar(
-                          "Empty",
-                          "Product's Price is required.",
-                          margin: const EdgeInsets.all(20),
-                        );
-                      } else if (controller.nameC.text.isEmpty &
-                          controller.priceC.text.isNotEmpty) {
-                        Get.snackbar(
-                          "Empty",
-                          "Product's Name is required.",
-                          margin: const EdgeInsets.all(20),
-                        );
-                      } else {
-                        controller.addProduct(controller.nameC.text,
-                            int.parse(controller.priceC.text));
-                      }
-                    },
+                    onPressed: onPressedCreate,
                     text: "Submit",
                     width: 249,
                     height: 49,
@@ -98,5 +68,34 @@ class AddProductView extends GetView<AddProductController> {
         ),
       ),
     );
+  }
+
+  void onPressedCreate() {
+    if (controller.nameC.text.isEmpty & controller.priceC.text.isEmpty) {
+      Get.snackbar(
+        "Empty",
+        "Product's Name and Price are required.",
+        margin: const EdgeInsets.all(20),
+      );
+    } else if (controller.nameC.text.isNotEmpty &
+        controller.priceC.text.isEmpty) {
+      Get.snackbar(
+        "Empty",
+        "Product's Price is required.",
+        margin: const EdgeInsets.all(20),
+      );
+    } else if (controller.nameC.text.isEmpty &
+        controller.priceC.text.isNotEmpty) {
+      Get.snackbar(
+        "Empty",
+        "Product's Name is required.",
+        margin: const EdgeInsets.all(20),
+      );
+    } else {
+      controller.addProduct(
+        controller.nameC.text,
+        int.parse(controller.priceC.text),
+      );
+    }
   }
 }
