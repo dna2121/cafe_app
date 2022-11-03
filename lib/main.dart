@@ -1,3 +1,4 @@
+import 'package:cafe_app/constants/app_color.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,11 @@ void main() async {
       title: "Application",
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
-      theme: ThemeData(fontFamily: 'Poppins'),
+      theme: ThemeData(
+        fontFamily: 'Poppins',
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+            backgroundColor: AppColor.buttonColor),
+      ),
     ),
   );
 }
