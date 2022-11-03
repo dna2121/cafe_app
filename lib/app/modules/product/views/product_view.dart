@@ -1,12 +1,10 @@
 import 'package:cafe_app/constants/app_color.dart';
 import 'package:cafe_app/widgets/primary_text_widget.dart';
-import 'package:cafe_app/widgets/text_field_product_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
 
-import '../../../../widgets/text_form_widget.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/product_controller.dart';
 
@@ -61,7 +59,6 @@ class ProductView extends GetView<ProductController> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColor.buttonColor,
         onPressed: () => Get.toNamed(Routes.ADD_PRODUCT),
         child: const FaIcon(FontAwesomeIcons.plus),
       ),
