@@ -4,7 +4,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
 
+import '../../../../constants/app_color.dart';
 import '../../../../widgets/search_bar_widget.dart';
+import '../../../../widgets/text_header_widget.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/product_controller.dart';
 
@@ -29,7 +31,12 @@ class ProductView extends GetView<ProductController> {
             ),
           ),
           const SizedBox(height: 15),
-          const SearchBar()
+          const SearchBar(),
+          const SizedBox(height: 37),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30),
+            child: TextHeader(text: "Coffee"),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
