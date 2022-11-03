@@ -9,10 +9,10 @@ class PrimaryTextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text(
-      "Add Product",
+    return Text(
+      text,
       textAlign: TextAlign.center,
-      style: TextStyle(
+      style: const TextStyle(
           fontSize: 32,
           color: AppColor.primaryColor,
           fontWeight: FontWeight.bold),
