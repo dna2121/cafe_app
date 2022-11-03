@@ -4,10 +4,8 @@ import 'package:get/get.dart';
 
 import 'package:cafe_app/widgets/primary_text_widget.dart';
 
-import '../../../../constants/app_color.dart';
 import '../../../../widgets/item_card_widget.dart';
 import '../../../../widgets/search_bar_widget.dart';
-import '../../../../widgets/text_header_widget.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/product_controller.dart';
 
@@ -33,14 +31,14 @@ class ProductView extends GetView<ProductController> {
           ),
           const SizedBox(height: 15),
           const SearchBar(),
-          const SizedBox(height: 37),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30),
-            child: TextHeader(text: "Coffee"),
-          ),
-          const ItemCard(
-            name: "Espresso",
-            price: "Rp 25.000",
+          Expanded(
+            child: ListView.builder(
+              itemCount: 2,
+              itemBuilder: (context, index) => const ItemCard(
+                name: "Espresso",
+                price: "Rp 25.000",
+              ),
+            ),
           )
         ],
       ),
