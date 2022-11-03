@@ -1,10 +1,11 @@
-import 'package:cafe_app/widgets/primary_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import 'package:get/get.dart';
 
+import 'package:cafe_app/widgets/primary_text_widget.dart';
+
 import '../../../../constants/app_color.dart';
+import '../../../../widgets/item_card_widget.dart';
 import '../../../../widgets/search_bar_widget.dart';
 import '../../../../widgets/text_header_widget.dart';
 import '../../../routes/app_pages.dart';
@@ -37,6 +38,10 @@ class ProductView extends GetView<ProductController> {
             padding: EdgeInsets.symmetric(horizontal: 30),
             child: TextHeader(text: "Coffee"),
           ),
+          const ItemCard(
+            name: "Espresso",
+            price: "Rp 25.000",
+          )
         ],
       ),
       floatingActionButton: FloatingActionButton(
