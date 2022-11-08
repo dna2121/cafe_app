@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../app/modules/product/controllers/product_controller.dart';
 import '../constants/app_color.dart';
 import '../widgets/text_header_widget.dart';
 
 class ItemCard extends StatelessWidget {
-  const ItemCard({
-    Key? key,
-    required this.name,
-    required this.price,
-  }) : super(key: key);
+  ItemCard({Key? key}) : super(key: key);
 
-  final String name;
-  final String price;
+  final controller = Get.put(ProductController());
 
   @override
   Widget build(BuildContext context) {
@@ -23,45 +21,55 @@ class ItemCard extends StatelessWidget {
         ),
         SizedBox(
           height: 160,
-          child: ListView.separated(
-            physics: const BouncingScrollPhysics(),
-            scrollDirection: Axis.horizontal,
-            itemCount: 7,
-            separatorBuilder: (context, index) => const SizedBox(),
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(28),
-                      child: Image.network(
-                        'https://majalah.ottenstatic.com/uploads/2016/09/espresso-013-1024x681.jpg',
-                        height: 99,
-                        width: 99,
-                        fit: BoxFit.cover,
+          child: StreamBuilder<QuerySnapshot<Object?>>(
+            stream: controller.streamData(),
+            builder: (context, snapshot) {
+              var listAllData = snapshot.data!.docs;
+
+              if (snapshot.connectionState == ConnectionState.active) {
+                return ListView.separated(
+                  physics: const BouncingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: listAllData.length,
+                  separatorBuilder: (context, index) => const SizedBox(),
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(28),
+                            child: Image.network(
+                              'https://majalah.ottenstatic.com/uploads/2016/09/espresso-013-1024x681.jpg',
+                              height: 99,
+                              width: 99,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            "${(listAllData[index].data() as Map<String, dynamic>)["name"]}",
+                            style: const TextStyle(
+                                fontSize: 12,
+                                color: AppColor.primaryColor,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          const SizedBox(height: 7),
+                          Text(
+                            "Rp. ${(listAllData[index].data() as Map<String, dynamic>)["price"]}",
+                            style: const TextStyle(
+                              fontSize: 12,
+                              color: AppColor.textColor,
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      name,
-                      style: const TextStyle(
-                          fontSize: 12,
-                          color: AppColor.primaryColor,
-                          fontWeight: FontWeight.w500),
-                    ),
-                    const SizedBox(height: 7),
-                    Text(
-                      price,
-                      style: const TextStyle(
-                        fontSize: 12,
-                        color: AppColor.textColor,
-                      ),
-                    ),
-                  ],
-                ),
-              );
+                    );
+                  },
+                );
+              }
+              return const Center(child: CircularProgressIndicator());
             },
           ),
         ),
