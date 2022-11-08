@@ -32,27 +32,12 @@ class ProductView extends GetView<ProductController> {
           const SizedBox(height: 15),
           const SearchBar(),
           const SizedBox(height: 15),
-          // Expanded(
-          //   child: ListView.builder(
-          //     physics: const BouncingScrollPhysics(),
-          //     itemCount: 6,
-          //     itemBuilder: (context, index) => const ItemCard(
-          //       name: "Espresso",
-          //       price: "Rp 25.000",
-          //     ),
-          //   ),
-          // )
           Expanded(
             child: ListView(
               physics: const BouncingScrollPhysics(),
-              children: const [
-                ItemCard(name: "name", price: "price"),
-                ItemCard(name: "2", price: "2"),
-                ItemCard(name: "2", price: "2"),
-                ItemCard(name: "2", price: "2"),
-              ],
+              children: [ItemCard()],
             ),
-          )
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
