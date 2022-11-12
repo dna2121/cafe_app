@@ -37,7 +37,8 @@ class ItemCard extends StatelessWidget {
                     return Padding(
                       padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
                       child: InkWell(
-                        onTap: () => Get.toNamed(Routes.EDIT_PRODUCT),
+                        onTap: () => Get.toNamed(Routes.EDIT_PRODUCT,
+                            arguments: listAllData[index].id),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
