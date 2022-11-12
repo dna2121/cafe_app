@@ -39,6 +39,8 @@ class ItemCard extends StatelessWidget {
                       child: InkWell(
                         onTap: () => Get.toNamed(Routes.EDIT_PRODUCT,
                             arguments: listAllData[index].id),
+                        onLongPress: () =>
+                            controller.deleteProduct(listAllData[index].id),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
