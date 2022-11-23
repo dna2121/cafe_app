@@ -9,9 +9,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: 4.6.5
   font_awesome_flutter: 10.2.1
-  flutterfire_cli: 0.2.6
+  flutterfire_cli: ^0.2.7
   cloud_firestore: ^4.0.1
-  firebase_core: ^2.1.0
+  firebase_core: ^2.2.0
+  firebase_storage: ^11.0.5
+  file_picker: ^4.6.1
+
   flutter: 
     sdk: flutter
 
