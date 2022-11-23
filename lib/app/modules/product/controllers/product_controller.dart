@@ -21,6 +21,7 @@ class ProductController extends GetxController {
     return coffee.snapshots();
   }
 
+  //delete
   void deleteProduct(String docID) {
     DocumentReference documentReference =
         firestore.collection("coffee").doc(docID);
