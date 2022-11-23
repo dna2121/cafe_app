@@ -1,23 +1,29 @@
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:get/get.dart';
 
 class ProfileController extends GetxController {
-  //TODO: Implement ProfileController
+  final storageRef = firebase_storage.FirebaseStorage.instance.ref();
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  void uploadFile() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles();
+
+    if (result != null) {
+      File file = File(result.files.single.path!);
+      String fileName = result.files.first.name;
+
+      try {
+        await firebase_storage.FirebaseStorage.instance
+            .ref(fileName)
+            .putFile(file);
+        Get.snackbar("Success", "File uploaded.");
+      } on firebase_storage.FirebaseException catch (e) {
+        print(e);
+      }
+    } else {
+      //user canceled the picker
+    }
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }
